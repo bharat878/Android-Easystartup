@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "112086316266",
+    "firebase_url": "https://easystartup-6e757.firebaseio.com",
+    "project_id": "easystartup-6e757",
+    "storage_bucket": "easystartup-6e757.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:112086316266:android:17d5734de2e22c1f",
+        "android_client_info": {
+          "package_name": "com.example.easystartup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "112086316266-q11950424jonst62ejquguvgrfh5l7fl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBx5jsRqca14IGPPm4xUiISzCvgVo7lv9Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

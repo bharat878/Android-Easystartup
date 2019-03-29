@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Welcome"
+    android:background="@drawable/bgg"
+    >
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome to the EasyStartUp"
+        android:textSize="25dp"
+        android:textColor="#E90808"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="To enjoy this service click here as a"
+        android:textColor="@android:color/white"
+        android:textSize="25dp"
+        android:layout_marginLeft="20dp"
+
+        />
+
+    <Button
+        android:id="@+id/startup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Start Up"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/white"
+        android:textSize="25dp"
+        android:background="#399C72"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OR"
+        android:layout_marginTop="40dp"
+        android:textSize="40dp"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        />
+
+    <Button
+        android:id="@+id/investor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Corporate"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/white"
+        android:textSize="25dp"
+        android:textStyle="normal"
+        android:background="#CE481D"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        />
+</LinearLayout>

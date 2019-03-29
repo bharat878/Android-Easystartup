@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F10A11"
+    android:orientation="vertical"
+    tools:context=".Startup.startupIdea">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="267dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:text="Title"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <EditText
+        android:id="@+id/ideaTitle"
+        android:layout_width="342dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/edit_text"
+        android:hint="  Enter the title"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="267dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:text="Sub Title"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        android:layout_marginTop="5dp"
+        />
+
+    <EditText
+        android:id="@+id/ideaSubtitle"
+        android:layout_width="342dp"
+        android:layout_height="40dp"
+        android:background="@drawable/edit_text"
+        android:hint="  Enter the title"
+        android:layout_marginLeft="20dp"
+        />
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="267dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:text="Description"
+        android:textColor="@android:color/white"
+        android:textSize="23dp"
+        android:layout_marginTop="5dp"
+        />
+
+    <EditText
+        android:id="@+id/ideaDesc"
+        android:layout_width="340dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/edit_text"
+        android:hint="  describe the idea"
+        />
+
+    <Button
+        android:id="@+id/btnChoose"
+        android:layout_width="175dp"
+        android:layout_height="44dp"
+        android:background="@drawable/edit_text"
+        android:backgroundTint="#1D36BE"
+        android:text="Choose Image"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+         />
+
+    <ImageView
+        android:id="@+id/choosedImage"
+        android:layout_width="250dp"
+        android:layout_height="120dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/backg" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="175dp"
+        android:layout_height="44dp"
+        android:background="@drawable/edit_text"
+        android:backgroundTint="#1D36BE"
+        android:text="Save"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_gravity="center"
+        />
+</LinearLayout>

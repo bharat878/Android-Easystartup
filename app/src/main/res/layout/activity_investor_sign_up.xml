@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Investor.InvestorSignUp">
+
+    <LinearLayout
+        android:id="@+id/upButton_investorReg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/investorSigninReg"
+        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:text="Signin"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textColor="#172674"
+        android:background="@android:color/white"
+        />
+
+    <Button
+        android:id="@+id/investorSignupReg"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:text="Sign up"
+        android:textSize="20sp"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/white"
+        android:background="#D83F0F"
+        />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#F10A11"
+        android:layout_below="@+id/upButton_investorReg"
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/loginicon"
+            android:layout_margin="10dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.1"
+            android:text="Signup"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="28sp"
+            style="@style/Base.TextAppearance.AppCompat.Large"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.7"
+            android:text="Full name"
+            android:textColor="@android:color/white"
+            android:textSize="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="30dp"
+            style="@style/Base.TextAppearance.AppCompat.Large"
+            />
+
+        <EditText
+            android:id="@+id/investorNameReg"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text"
+            android:hint="Enter full name"
+            android:padding="5dp"
+            android:textColor="#132EC9" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.7"
+            android:text="Email"
+            android:textColor="@android:color/white"
+            android:textSize="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            style="@style/Base.TextAppearance.AppCompat.Large"
+            />
+        <EditText
+            android:id="@+id/investorEmailReg"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text"
+            android:hint="Enter email"
+            android:textColor="#132EC9"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:padding="5dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.7"
+            android:text="Password"
+            android:textColor="@android:color/white"
+            android:textSize="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            style="@style/Base.TextAppearance.AppCompat.Large"
+            />
+
+        <EditText
+            android:id="@+id/investorPasswordReg"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text"
+            android:padding="5dp"
+            android:hint="Enter password"
+            android:textColor="#132EC9" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.7"
+            android:text="Company Name"
+            android:textColor="@android:color/white"
+            android:textSize="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            style="@style/Base.TextAppearance.AppCompat.Large"
+            />
+        <EditText
+            android:id="@+id/investorCompanyReg"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text"
+            android:hint="Enter company name"
+            android:textColor="#132EC9"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:padding="5dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.7"
+            android:text="Nationaliity"
+            android:textColor="@android:color/white"
+            android:textSize="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            style="@style/Base.TextAppearance.AppCompat.Large"
+            />
+        <EditText
+            android:id="@+id/investorNationalityReg"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text"
+            android:hint="Enter the nationality"
+            android:textColor="#132EC9"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:padding="5dp"
+            />
+        <Button
+            android:id="@+id/investorBtnReg"
+            android:layout_width="150dp"
+            android:layout_height="0dp"
+            android:layout_weight="1.1"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edit_text"
+            android:backgroundTint="#1836C7"
+            android:text="Signup"
+            android:textColor="@android:color/white"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="5dp"
+            />
+    </LinearLayout>
+
+</RelativeLayout>
