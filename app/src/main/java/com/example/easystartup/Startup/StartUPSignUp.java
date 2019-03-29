@@ -67,7 +67,6 @@ public class StartUPSignUp extends AppCompatActivity implements View.OnClickList
         final String phoneNo = edtPhoneNo.getText().toString();
         final String nationality = edtNationality.getText().toString();
 
-
         if (TextUtils.isEmpty(fullName))
         {
             Toast.makeText(this, "Pls enter full name",Toast.LENGTH_SHORT).show();

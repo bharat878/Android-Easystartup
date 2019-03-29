@@ -40,11 +40,11 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.IdeaViewHolder
 
         ideaViewHolder.title.setText(mArrayList.get(i).getTitle());
         ideaViewHolder.subTitle.setText(mArrayList.get(i).getSubtitle());
-//        Picasso.with(mContext)
-//                .load(myModel.getImages())
-//                .fit()
-//                .centerCrop()
-//                .into(ideaViewHolder.ImageView);
+        Picasso.with(mContext)
+                .load(mArrayList.get(i).getImage())
+                .fit()
+                .centerCrop()
+                .into(ideaViewHolder.ImageView);
     }
 
     public  class IdeaViewHolder extends RecyclerView.ViewHolder {

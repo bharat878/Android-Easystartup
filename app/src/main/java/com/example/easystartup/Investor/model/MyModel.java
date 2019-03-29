@@ -6,24 +6,23 @@ public class MyModel {
     private String Title;
 
 
-    int images;
+    String image;
 
     public MyModel() {
     }
 
-    public int getImages() {
-        return images;
+    public MyModel(String subtitle, String title, String image) {
+        Subtitle = subtitle;
+        Title = title;
+        this.image = image;
     }
 
-    public void setImages(int images) {
-        this.images = images;
+    public String getImage() {
+        return image;
     }
 
-    public MyModel(String Subtitle, String Title, int images) {
-        this.Subtitle = Subtitle;
-        this.Title = Title;
-        this.images = images;
-
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getTitle() {

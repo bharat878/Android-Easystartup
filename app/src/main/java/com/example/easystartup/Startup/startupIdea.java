@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -83,6 +84,7 @@ public class startupIdea extends AppCompatActivity implements View.OnClickListen
         if (requestCode==PICK_IMAGE_REQUEST && resultCode==RESULT_OK && data!=null && data.getData()!=null)
         {
             filePath = data.getData();
+            Log.d("imgelink","this is"+filePath);
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),filePath);
                 choosedImage.setImageBitmap(bitmap);
@@ -95,53 +97,17 @@ public class startupIdea extends AppCompatActivity implements View.OnClickListen
 
     private void uploadImage() {
 
-        String userUniqueId = firebaseAuth.getCurrentUser().getUid();
-
-        if (filePath!=null)
-        {
-//            final ProgressDialog progressDialog = new ProgressDialog(this);
-//            progressDialog.setTitle("Uploading...");
-//            progressDialog.show();
-
-            final String title = ideaTitle.getText().toString();
-            //getDownloadUrl Se link mil jaye gaa
-            StorageReference ref = storageReference.child("images/"+ userUniqueId.toString()).child(title);
-            ref.putFile(filePath)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                          //  progressDialog.dismiss();
-                           // Toast.makeText(startupIdea.this,"Uploaded",Toast.LENGTH_SHORT).show();
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                          //  progressDialog.dismiss();
-                            Toast.makeText(startupIdea.this,"Failed"+e.getMessage(),Toast.LENGTH_SHORT).show();
-                        }
-                    })
-                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                            double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
-                          //  progressDialog.setMessage("Uploaded"+(int)progress+"*");
-                        }
-                    });
-        }
-
-//        Bundle bb = getIntent().getExtras();
-//         String email = bb.getString("Email");
+        final String userUniqueId = firebaseAuth.getCurrentUser().getUid();
 
         final String title = ideaTitle.getText().toString();
         final String subTitle = ideaSubtitle.getText().toString();
         final String Desc = ideadesc.getText().toString();
-//
-//        Intent intent = new Intent(startupIdea.this, ideaView.class);
-//       intent.putExtra("title", title);
-//        startActivity(intent);
+        final HashMap<String, String> map = new HashMap<>();
 
-
+        //  map.put("Emailid",email);
+        map.put("Title", title);
+        map.put("Subtitle", subTitle);
+        map.put("Description", Desc);
 
         if (TextUtils.isEmpty(title))
         {
@@ -161,25 +127,84 @@ public class startupIdea extends AppCompatActivity implements View.OnClickListen
             return;
         }
 
-        HashMap<String, String> map = new HashMap<>();
-      //  map.put("Emailid",email);
-        map.put("Title", title);
-        map.put("Subtitle", subTitle);
-        map.put("Description", Desc);
+        if (filePath!=null)
+        {
+//            final ProgressDialog progressDialog = new ProgressDialog(this);
+//            progressDialog.setTitle("Uploading...");
+//            progressDialog.show();
 
-        mDataBaseRef.child("Enterpreneur").child(userUniqueId).child(title).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    Toast.makeText(startupIdea.this, "data is saved..", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(startupIdea.this, StartUptSignIn.class));
-                    finish();
-                } else {
-                    Toast.makeText(startupIdea.this, "Failed..", Toast.LENGTH_SHORT).show();
+          //  final String title = ideaTitle.getText().toString();
+            //getDownloadUrl Se link mil jaye gaa
+          ///  StorageReference ref = storageReference.child("images/"+ userUniqueId.toString()).child(title);
+            final StorageReference ref = storageReference.child("Enterpreneur").child(userUniqueId).child(title);
+            ref.putFile(filePath).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+//                                                   map.put("image", task.getResult().getStorage().getDownloadUrl().toString());
+                    // get the image Url of the file uploaded
+                    ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            // getting image uri and converting into string
+                            Uri downloadUrl = uri;
+                            String fileUrl = downloadUrl.toString();
+                                                   map.put("image", fileUrl);
+
+                            mDataBaseRef.child("Enterpreneur").child(userUniqueId).child(title).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(startupIdea.this, "data is saved..", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(startupIdea.this, StartUptSignIn.class));
+                                        finish();
+                                    } else {
+                                        Toast.makeText(startupIdea.this, "Failed..", Toast.LENGTH_SHORT).show();
+                                    }
+                                    finish();
+                                }
+                            });
+                        }
+                    });
+
+
+
+
                 }
-                finish();
-            }
-        });
+            });
+//                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+//                        @Override
+//                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+//                            map.put("image", taskSnapshot.getMetadata().getPath());
+//
+//                            //  progressDialog.dismiss();
+//                           // Toast.makeText(startupIdea.this,"Uploaded",Toast.LENGTH_SHORT).show();
+//                        }
+//                    })
+//                    .addOnFailureListener(new OnFailureListener() {
+//                        @Override
+//                        public void onFailure(@NonNull Exception e) {
+//                          //  progressDialog.dismiss();
+//                            Toast.makeText(startupIdea.this,"Failed"+e.getMessage(),Toast.LENGTH_SHORT).show();
+//                        }
+//                    })
+//                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+//                        @Override
+//                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+//                            double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
+//                          //  progressDialog.setMessage("Uploaded"+(int)progress+"*");
+//                        }
+//                    });
+        }
+
+//        Bundle bb = getIntent().getExtras();
+//         String email = bb.getString("Email");
+
+//
+//        Intent intent = new Intent(startupIdea.this, ideaView.class);
+//       intent.putExtra("title", title);
+//        startActivity(intent);
+
+
 
 //image wala kha hai
     }
