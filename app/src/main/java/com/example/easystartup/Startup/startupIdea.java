@@ -3,11 +3,11 @@ package com.example.easystartup.Startup;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -16,17 +16,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.easystartup.Investor.ideaView;
 import com.example.easystartup.R;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
@@ -104,7 +101,6 @@ public class startupIdea extends AppCompatActivity implements View.OnClickListen
         final String Desc = ideadesc.getText().toString();
         final HashMap<String, String> map = new HashMap<>();
 
-        //  map.put("Emailid",email);
         map.put("Title", title);
         map.put("Subtitle", subTitle);
         map.put("Description", Desc);
@@ -129,18 +125,10 @@ public class startupIdea extends AppCompatActivity implements View.OnClickListen
 
         if (filePath!=null)
         {
-//            final ProgressDialog progressDialog = new ProgressDialog(this);
-//            progressDialog.setTitle("Uploading...");
-//            progressDialog.show();
-
-          //  final String title = ideaTitle.getText().toString();
-            //getDownloadUrl Se link mil jaye gaa
-          ///  StorageReference ref = storageReference.child("images/"+ userUniqueId.toString()).child(title);
-            final StorageReference ref = storageReference.child("Enterpreneur").child(userUniqueId).child(title);
+            final StorageReference ref = storageReference.child("Enterpreneur").child(userUniqueId).child("Details");
             ref.putFile(filePath).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-//                                                   map.put("image", task.getResult().getStorage().getDownloadUrl().toString());
                     // get the image Url of the file uploaded
                     ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
@@ -150,11 +138,12 @@ public class startupIdea extends AppCompatActivity implements View.OnClickListen
                             String fileUrl = downloadUrl.toString();
                                                    map.put("image", fileUrl);
 
-                            mDataBaseRef.child("Enterpreneur").child(userUniqueId).child(title).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            mDataBaseRef.child("Enterpreneur").child(userUniqueId).child("Details").setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
                                         Toast.makeText(startupIdea.this, "data is saved..", Toast.LENGTH_SHORT).show();
+                                        firebaseAuth.signOut();
                                         startActivity(new Intent(startupIdea.this, StartUptSignIn.class));
                                         finish();
                                     } else {
@@ -165,48 +154,10 @@ public class startupIdea extends AppCompatActivity implements View.OnClickListen
                             });
                         }
                     });
-
-
-
-
                 }
             });
-//                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//                        @Override
-//                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//                            map.put("image", taskSnapshot.getMetadata().getPath());
-//
-//                            //  progressDialog.dismiss();
-//                           // Toast.makeText(startupIdea.this,"Uploaded",Toast.LENGTH_SHORT).show();
-//                        }
-//                    })
-//                    .addOnFailureListener(new OnFailureListener() {
-//                        @Override
-//                        public void onFailure(@NonNull Exception e) {
-//                          //  progressDialog.dismiss();
-//                            Toast.makeText(startupIdea.this,"Failed"+e.getMessage(),Toast.LENGTH_SHORT).show();
-//                        }
-//                    })
-//                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-//                        @Override
-//                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-//                            double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
-//                          //  progressDialog.setMessage("Uploaded"+(int)progress+"*");
-//                        }
-//                    });
         }
 
-//        Bundle bb = getIntent().getExtras();
-//         String email = bb.getString("Email");
-
-//
-//        Intent intent = new Intent(startupIdea.this, ideaView.class);
-//       intent.putExtra("title", title);
-//        startActivity(intent);
-
-
-
-//image wala kha hai
     }
 
     @Override

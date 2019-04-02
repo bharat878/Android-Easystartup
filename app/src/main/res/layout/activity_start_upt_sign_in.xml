@@ -110,6 +110,7 @@
             android:layout_weight="1"
             android:background="@drawable/edit_text"
             android:hint="enter the password"
+            android:inputType="numberPassword"
             android:padding="5dp"
             android:textColor="#132EC9" />
         <Button

@@ -1,13 +1,11 @@
 package com.example.easystartup.Investor;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.example.easystartup.Investor.adapter.IdeaAdapter;
 import com.example.easystartup.Investor.model.MyModel;
@@ -36,33 +34,32 @@ public class ideaView extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-//        mRecyclerView.setHasFixedSize(true);
-//        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-//
-      //  String key = mDatabaseReference.child("Enterpreneur").push().getKey();
 
-       // Toast.makeText(ideaView.this,"the id is"+key,Toast.LENGTH_SHORT).show();
         mDatabaseReference.child("Enterpreneur").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+
                     String key = postSnapshot.getKey();
+
                     mDatabaseReference.child("Enterpreneur").child(key).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                             for(DataSnapshot data : dataSnapshot.getChildren()){
                                 String key = data.getKey();
-                                if(!key.equals("Email") && !key.equals("Name") && !key.equals("Nationality") && !key.equals("PhoneNo")){
+                                String value = data.getValue().toString();
+
+                                if(!key.equals("Email") &&!key.equals("Name") && !key.equals("Nationality") && !key.equals("PhoneNo")){
                                     MyModel myModel = data.getValue(MyModel.class);
-                                    Log.d("datbase image","this is"+myModel);
-                                    mArrayList.add(myModel);
-                                }
+                                 //  Toast.makeText(ideaView.this," "+myModel,Toast.LENGTH_SHORT).show();
+                                   mArrayList.add(myModel);
+                               }
                             }
                             IdeaAdapter mAdapter = new IdeaAdapter(getApplicationContext(),mArrayList);
                             mRecyclerView.setAdapter(mAdapter);
                         }
-                     //   upload kon se class se krwa rha hai
+
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {
 
@@ -76,32 +73,5 @@ public class ideaView extends AppCompatActivity {
 
             }
         });
-//        mDatabaseReference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                for (DataSnapshot postSnapshot : dataSnapshot.getChildren())
-//                {
-//                    String key = postSnapshot.getKey().toString();
-//                    String value = postSnapshot.getValue().toString();
-//                    Log.e("onDataChange", key+" - Key Value - "+value);
-//                    MyModel myModel = postSnapshot.getValue(MyModel.class);
-//                    String uid = postSnapshot.getValue().toString();
-//                    mArrayList.add(myModel);
-//                }
-////
-////                mAdapter = new IdeaAdapter(ideaView.this,mArrayList);
-////                mRecyclerView.setAdapter(mAdapter);
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//                Toast.makeText(ideaView.this,databaseError.getMessage(),Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//
-//        ArrayList<MyModel> mArrayList = new ArrayList<MyModel>();
-//        MyModel myModel = new MyModel("Java","android",R.drawable.amazon);
-//        mArrayList.add(myModel);
-
     }
 }

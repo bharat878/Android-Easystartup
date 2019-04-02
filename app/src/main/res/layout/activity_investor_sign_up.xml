@@ -134,6 +134,7 @@
             android:background="@drawable/edit_text"
             android:padding="5dp"
             android:hint="Enter password"
+            android:inputType="numberPassword"
             android:textColor="#132EC9" />
 
         <TextView

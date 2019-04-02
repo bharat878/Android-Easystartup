@@ -6,12 +6,16 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Investor.ideaView"></activity>
+        <activity android:name=".Investor.IdeaDetails">
+
+        </activity>
+        <activity android:name=".About"></activity>
+        <activity android:name=".Investor.ideaView" />
         <activity android:name=".Startup.startupIdea" />
         <activity android:name=".resetPassword" />
         <activity
@@ -32,6 +36,7 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
