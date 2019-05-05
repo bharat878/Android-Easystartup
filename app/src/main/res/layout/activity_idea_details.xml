@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Investor.IdeaDetails"
+    android:background="#F10A11"
+    >
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Details about idea and Enterpreneur"
+        android:textColor="@android:color/white"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/enterpreneurName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:text="Name"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        />
+
+    <TextView
+        android:id="@+id/enterpreneurEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/enterpreneurName"
+        android:text="email"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        />
+
+
+    <TextView
+        android:id="@+id/enterpreneurNationality"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/enterpreneurEmail"
+        android:text="Nationality"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:textColor="@android:color/white"
+        />
+    <ImageView
+        android:id="@+id/enterpreneurImage"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/backg"
+        android:layout_below="@id/enterpreneurEmail"
+        android:layout_marginLeft="200dp"
+        />
+    <TextView
+        android:id="@+id/enterpreneurPhoneNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/enterpreneurNationality"
+        android:text="Phone no"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        />
+
+
+    <TextView
+        android:id="@+id/enterpreneurTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/enterpreneurPhoneNo"
+        android:text="Title"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/white"
+        />
+
+    <TextView
+        android:id="@+id/enterpreneurSubtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/enterpreneurTitle"
+        android:text="Subtitle"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        />
+
+    <TextView
+        android:id="@+id/enterpreneurDesc"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_below="@+id/enterpreneurSubtitle"
+        android:text="Description"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        />
+
+
+    <Button
+        android:id="@+id/Logout"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/enterpreneurDesc"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edit_text"
+        android:backgroundTint="#1836C7"
+        android:text="Logout"
+        android:textColor="@android:color/white"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="105dp"
+        android:layout_marginBottom="5dp"
+        />
+
+</RelativeLayout>
