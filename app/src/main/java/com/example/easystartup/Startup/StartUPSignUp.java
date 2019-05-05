@@ -2,9 +2,9 @@ package com.example.easystartup.Startup;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +27,7 @@ public class StartUPSignUp extends AppCompatActivity implements View.OnClickList
 
     EditText edtfullName, edtEmail, edtPassword, edtPhoneNo, edtNationality;
     Button btnSignup;
+   // RadioGroup gender;
 
     ProgressDialog progressDialog;
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
@@ -41,14 +42,17 @@ public class StartUPSignUp extends AppCompatActivity implements View.OnClickList
 
         startupSignInReg = (Button)findViewById(R.id.startupSigninReg);
 
+
         edtfullName= (EditText)findViewById(R.id.startupNameReg);
         edtEmail = (EditText)findViewById(R.id.startupEmailReg);
         edtPassword = (EditText)findViewById(R.id.startupPasswordReg);
-        edtPhoneNo = (EditText)findViewById(R.id.startupPhoneReg);
+        edtPhoneNo = (EditText)findViewById(R.id.startupPhoneRegister);
         edtNationality = (EditText)findViewById(R.id.startupNationalityReg);
         btnSignup = (Button)findViewById(R.id.startBtnReg);
+       // gender = (RadioGroup)findViewById(R.id.gender);
 
         btnSignup.setOnClickListener(this);
+      //  gender.setOnCheckedChangeListener(new V);
 
         startupSignInReg.setOnClickListener(new View.OnClickListener() {
             @Override

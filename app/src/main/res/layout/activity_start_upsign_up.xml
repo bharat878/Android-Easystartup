@@ -149,7 +149,7 @@
             style="@style/Base.TextAppearance.AppCompat.Large"
             />
         <EditText
-            android:id="@+id/startupPhoneReg"
+            android:id="@+id/startupPhoneRegister"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -186,6 +186,34 @@
             android:layout_marginLeft="30dp"
             android:padding="5dp"
             />
+
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="0.7"-->
+            <!--android:text="Phone no"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--android:textSize="15dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_marginLeft="30dp"-->
+            <!--style="@style/Base.TextAppearance.AppCompat.Large"-->
+            <!--/>-->
+
+
+        <!--<EditText-->
+            <!--android:inputType="number"-->
+            <!--android:id="@+id/investorcity"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@drawable/edit_text"-->
+            <!--android:hint="phone no"-->
+            <!--android:textColor="#132EC9"-->
+            <!--android:layout_marginRight="30dp"-->
+            <!--android:layout_marginLeft="30dp"-->
+            <!--android:padding="5dp"-->
+            <!--/>-->
+
         <Button
             android:id="@+id/startBtnReg"
             android:layout_width="150dp"
@@ -202,6 +230,9 @@
             android:layout_marginBottom="5dp"
 
             />
+
+
+
     </LinearLayout>
 
 

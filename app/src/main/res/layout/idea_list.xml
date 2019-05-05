@@ -8,53 +8,56 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:background="#e9e9e9">
+            android:background="#D3DBE0">
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/logo" />
+            <TextView
+                android:id="@+id/ideaTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="0dp"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:text="Title"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="#000"
+
+                />
+
+            <TextView
+                android:id="@+id/ideaSubTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ideaTitle"
+                android:layout_gravity="center"
+                android:layout_marginLeft="0dp"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:text="Sub_Title"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="#000"
+                />
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/ideaTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="20dp"
-                    android:layout_weight="1"
-                    android:padding="10dp"
-                    android:text="Title"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:textColor="#000"
-
-                    />
-
-                <TextView
-                    android:id="@+id/ideaSubTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/ideaTitle"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="20dp"
-                    android:layout_weight="1"
-                    android:padding="10dp"
-                    android:text="Sub_Title"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:textColor="#000"
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/logo"
+                    android:layout_marginLeft="250dp"
                     />
             </RelativeLayout>
-        </LinearLayout>
+        </RelativeLayout>
 
     </android.support.v7.widget.CardView>
 </RelativeLayout>

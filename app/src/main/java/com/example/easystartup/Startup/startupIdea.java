@@ -143,8 +143,8 @@ public class startupIdea extends AppCompatActivity implements View.OnClickListen
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
                                         Toast.makeText(startupIdea.this, "data is saved..", Toast.LENGTH_SHORT).show();
-                                        firebaseAuth.signOut();
-                                        startActivity(new Intent(startupIdea.this, StartUptSignIn.class));
+                                       // firebaseAuth.signOut();
+                                        startActivity(new Intent(startupIdea.this, startupIdeaDetails.class));
                                         finish();
                                     } else {
                                         Toast.makeText(startupIdea.this, "Failed..", Toast.LENGTH_SHORT).show();
