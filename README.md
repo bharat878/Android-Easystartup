@@ -1,6 +1,8 @@
 # Android-Easystartup
 This is a android application which is a platform for corporates and startup
 
+In this application, enterpreneur can submit their idea and Investor can see all those ideas with details of enterpreneur so that investor can manually can contact to them.
+
 It's having features of register, login and change password.
 
 In this Authentication, Realtime database and Storage is used.
